@@ -27,52 +27,64 @@ namespace Dewricon
             dewRcons.ws.OnOpen += ws_OnOpen;
             dewRcons.ws.OnError += ws_OnError;
             dewRcons.ws.OnMessage += ws_OnMessage;
+            textBox3.Enabled = true;
+            btn_Send_to_console.Enabled = true;
         }
 
 
 
         void ws_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
-            dewRcons.lastMessage = e.Data.ToString();
-            richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[REC]: \n" + e.Data.ToString() + "\n"));
-            Console.WriteLine(e.RawData.ToString());
-            string omg;
-            string qrep;
-            string uid;
-            if (e.Data.Contains("uid"))
+            try
             {
-                string[] thisarray = e.Data.Split(' ');
-                List<string> Mylist = new List<string>();
-                Mylist.AddRange(thisarray);
-                foreach (var item in Mylist)
+
+                dewRcons.lastMessage = e.Data.ToString();
+                richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[REC]: \n" + e.Data.ToString() + "\n"));
+                //Console.WriteLine(e.RawData.ToString());
+                string omg;
+                string qrep;
+                string uid;
+                if (e.Data.Contains("uid"))
                 {
-                    if (item == "ip:" || item.Contains("uid"))
+                    string[] thisarray = e.Data.Split(' ');
+                    List<string> Mylist = new List<string>();
+                    Mylist.AddRange(thisarray);
+                    foreach (var item in Mylist)
                     {
-                    }
-                    else if (item.Contains('"'))
-                    {
-                        qrep = item.Replace('"', ' ');
-                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(qrep.ToString())));
-                    }
-                    else if (item.Length > 15 && item.Length < 18)
-                    {
-                        uid = item.Replace(',', ' ');
-                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(uid.ToString())));
-                    }
-                    else
-                    {
-                        if (!item.Contains(')'))
+                        if (item == "ip:" || item.Contains("uid"))
                         {
-                            listView1.Invoke(new Action(() => listView1.Items.Add(item.ToString())));
+                        }
+                        else if (item.Contains('"'))
+                        {
+                            qrep = item.Replace('"', ' ');
+                            listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(qrep.ToString())));
+                        }
+                        else if (item.Length > 15 && item.Length < 18)
+                        {
+                            uid = item.Replace(',', ' ');
+                            listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(uid.ToString())));
                         }
                         else
                         {
-                            omg = item.Replace(')', ' ');
-                            listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(omg.ToString())));
+                            if (!item.Contains(')'))
+                            {
+                                listView1.Invoke(new Action(() => listView1.Items.Add(item.ToString())));
+                            }
+                            else
+                            {
+                                omg = item.Replace(')', ' ');
+                                listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(omg.ToString())));
+                            }
                         }
                     }
+                    //  dewRcons.ws.Close();
+
                 }
-                //  dewRcons.ws.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
 
             }
         }
@@ -99,52 +111,129 @@ namespace Dewricon
 
         private void btn_Send_to_console_Click(object sender, EventArgs e)
         {
-            //richTextBox1.AppendText("[SENT]:\n" + textBox3.Text);
-            richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
-            if (textBox3.Text.StartsWith("/clear"))
-            {
-                richTextBox1.Clear();
-                textBox3.Clear();
-            }
-            else
-            {
-                dewRcons.Send(textBox3.Text);
-                textBox3.Clear();
+                try
+                {
+                    richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
+                    if (textBox3.Text.StartsWith("/clear"))
+                    {
+                        richTextBox1.Clear();
+                        textBox3.Clear();
+                    }
+                    else
+                    {
+                        dewRcons.Send(textBox3.Text);
+                        textBox3.Clear();
 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            StartConnection();
+        try
+            {
+                StartConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            dewRcons.Send("server.listplayers");
+                try
+                {
+                    dewRcons.Send("server.listplayers");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dewRcons.ws.Close();
+
+            try
+            {
+                dewRcons.ws.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                try
+                {
+                    if (e.KeyChar == (char)Keys.Enter)
+                    {
+                        richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
+                        if (textBox3.Text.StartsWith("/clear"))
+                        {
+                            richTextBox1.Clear();
+                            textBox3.Clear();
+                        }
+                        else
+                        {
+                            dewRcons.Send(textBox3.Text);
+                            textBox3.Clear();
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
         }
 
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Return)
+            try
             {
-                richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
-                if (textBox3.Text.StartsWith("/clear"))
-                {
-                    richTextBox1.Clear();
-                    textBox3.Clear();
-                }
-                else
-                {
-                    dewRcons.Send(textBox3.Text);
-                    textBox3.Clear();
-                }
+
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
+                        if (textBox3.Text.StartsWith("/clear"))
+                        {
+                            richTextBox1.Clear();
+                            textBox3.Clear();
+                        }
+                        else
+                        {
+                            dewRcons.Send(textBox3.Text);
+                            textBox3.Clear();
+                        }
+                    }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox3.Enabled = false;
+            btn_Send_to_console.Enabled = false;
+        }
+
+        private void kickToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dewRcons.Send("Server.KickUid " + listView1.Items[0].SubItems[2].Text);
         }
 
     }
