@@ -12,6 +12,8 @@ namespace Dewricon
 {
     public class Brain
     {
+    	//will be removed :_D
+    	
         public WebSocket ws = new WebSocket("ws://127.0.0.1:11776", "dew-rcon");
             public string lastMessage = "";
             public string lastCommand = "";
