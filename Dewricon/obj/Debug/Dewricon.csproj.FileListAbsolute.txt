@@ -1,7 +1,6 @@
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.pdb
-c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.dll
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.pdb
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Form1.resources

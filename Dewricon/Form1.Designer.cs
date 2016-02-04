@@ -61,19 +61,19 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_Send_to_console = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(830, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(681, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -324,7 +324,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(830, 415);
+            this.tabControl1.Size = new System.Drawing.Size(681, 415);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -336,99 +336,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(822, 389);
+            this.tabPage1.Size = new System.Drawing.Size(673, 389);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Players";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(634, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btn_Send_to_console);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(822, 389);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Console";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btn_Send_to_console
-            // 
-            this.btn_Send_to_console.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Send_to_console.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Send_to_console.Location = new System.Drawing.Point(736, 356);
-            this.btn_Send_to_console.Name = "btn_Send_to_console";
-            this.btn_Send_to_console.Size = new System.Drawing.Size(75, 24);
-            this.btn_Send_to_console.TabIndex = 2;
-            this.btn_Send_to_console.Text = "Send";
-            this.btn_Send_to_console.UseVisualStyleBackColor = true;
-            this.btn_Send_to_console.Click += new System.EventHandler(this.btn_Send_to_console_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(8, 357);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(722, 22);
-            this.textBox3.TabIndex = 1;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.HideSelection = false;
-            this.richTextBox1.Location = new System.Drawing.Point(8, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(806, 345);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(822, 389);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(677, 156);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(614, 274);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // listView1
             // 
@@ -440,7 +351,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(8, 6);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(369, 313);
+            this.listView1.Size = new System.Drawing.Size(463, 375);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -464,11 +375,190 @@
             this.columnHeader4.Text = "IP";
             this.columnHeader4.Width = 122;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(477, 64);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(110, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Ban";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(477, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Kick";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(477, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btn_Send_to_console);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.richTextBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(673, 389);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Console";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_Send_to_console
+            // 
+            this.btn_Send_to_console.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Send_to_console.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Send_to_console.Location = new System.Drawing.Point(587, 356);
+            this.btn_Send_to_console.Name = "btn_Send_to_console";
+            this.btn_Send_to_console.Size = new System.Drawing.Size(75, 24);
+            this.btn_Send_to_console.TabIndex = 2;
+            this.btn_Send_to_console.Text = "Send";
+            this.btn_Send_to_console.UseVisualStyleBackColor = true;
+            this.btn_Send_to_console.Click += new System.EventHandler(this.btn_Send_to_console_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.AutoCompleteCustomSource.AddRange(new string[] {
+            "Camera.Crosshair",
+            "Camera.FOV",
+            "Camera.HideHUD",
+            "Camera.Mode",
+            "Camera.Speed",
+            "Game.DeleteForgeItem",
+            "Game.Exit",
+            "Game.ForceLoad",
+            "Game.GameType",
+            "Game.Info",
+            "Game.LanguageID",
+            "Game.ListMaps",
+            "Game.LogFilter",
+            "Game.LogMode",
+            "Game.LogName",
+            "Game.Map",
+            "Game.MenuURL",
+            "Game.SetMenuEnabled",
+            "Game.ShowUI",
+            "Game.SkipLauncher",
+            "Game.Start",
+            "Game.Stop",
+            "Game.Version",
+            "Graphics.Bloom",
+            "Graphics.BlueHue",
+            "Graphics.DepthOfField",
+            "Graphics.GreenHue",
+            "Graphics.Letterbox",
+            "Graphics.RedHue",
+            "Graphics.Saturation",
+            "IRC.GlobalChannel",
+            "IRC.Server",
+            "IRC.ServerPort",
+            "Input.Bind",
+            "Input.RawInput",
+            "Input.UIButtonPress",
+            "Player.Armor.Accessory",
+            "Player.Armor.Arms",
+            "Player.Armor.Chest",
+            "Player.Armor.Helmet",
+            "Player.Armor.Legs",
+            "Player.Armor.Pelvis",
+            "Player.Armor.Shoulders",
+            "Player.Colors.Holo",
+            "Player.Colors.Lights",
+            "Player.Colors.Primary",
+            "Player.Colors.Secondary",
+            "Player.Colors.Visor",
+            "Player.Name",
+            "Player.PrintUID",
+            "Player.PrivKey",
+            "Player.PubKey",
+            "Server.AddBan",
+            "Server.Announce",
+            "Server.AnnounceStats",
+            "Server.Connect",
+            "Server.Countdown ",
+            "Server.KickBanIndex",
+            "Server.KickBanPlayer",
+            "Server.KickBanUid",
+            "Server.KickIndex",
+            "Server.KickPlayer",
+            "Server.KickUid",
+            "Server.ListPlayers",
+            "Server.LobbyType",
+            "Server.MaxPlayers",
+            "Server.Mode",
+            "Server.Name",
+            "Server.Password",
+            "Server.Ping",
+            "Server.Port",
+            "Server.ShouldAnnounce",
+            "Server.SprintEnabled",
+            "Server.Unannounce",
+            "Server.Unban",
+            "Server.UnlimitedSprint",
+            "Time.GameSpeed",
+            "VoIP.AGC",
+            "VoIP.EchoCancellation",
+            "VoIP.Enabled",
+            "VoIP.MutePlayer ",
+            "VoIP.PushToTalk",
+            "VoIP.ServerEnabled",
+            "VoIP.Talk",
+            "VoIP.VoiceActivationLevel ",
+            "VoIP.VolumeModifier"});
+            this.textBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(8, 357);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(573, 22);
+            this.textBox3.TabIndex = 1;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.HideSelection = false;
+            this.richTextBox1.Location = new System.Drawing.Point(8, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(657, 345);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(673, 389);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 439);
+            this.ClientSize = new System.Drawing.Size(681, 439);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
