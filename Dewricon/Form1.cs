@@ -36,31 +36,28 @@ namespace Dewricon
             dewRcons.lastMessage = e.Data.ToString();
             richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[REC]: \n" + e.Data.ToString() + "\n"));
             Console.WriteLine(e.RawData.ToString());
-            //if (e.Data.Contains("uid"))
-            if (1 + 1 == 2)
+            string omg;
+            string qrep;
+            string uid;
+            if (e.Data.Contains("uid"))
             {
-            string[] thisarray = e.Data.Split(' ');
+                string[] thisarray = e.Data.Split(' ');
                 List<string> Mylist = new List<string>();
                 Mylist.AddRange(thisarray);
-                string omg;
-                string qrep;
                 foreach (var item in Mylist)
                 {
-                    // listView1.Invoke(new Action(() => listView1.Items.Add(item[1].ToString())));
-                    // string[] split = item.Split(',');
-                    // ListViewItem lvi = new ListViewItem(split[i]);
                     if (item == "ip:" || item.Contains("uid"))
                     {
-                        //listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(item.ToString())));
                     }
-                    else if(item.Contains('"'))
+                    else if (item.Contains('"'))
                     {
                         qrep = item.Replace('"', ' ');
                         listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(qrep.ToString())));
                     }
                     else if (item.Length > 15 && item.Length < 18)
                     {
-                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(item.ToString())));
+                        uid = item.Replace(',', ' ');
+                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(uid.ToString())));
                     }
                     else
                     {
@@ -75,7 +72,7 @@ namespace Dewricon
                         }
                     }
                 }
-                dewRcons.ws.Close();
+                //  dewRcons.ws.Close();
 
             }
         }
@@ -125,46 +122,6 @@ namespace Dewricon
         private void button2_Click_1(object sender, EventArgs e)
         {
             dewRcons.Send("server.listplayers");
-         /*   if (1 + 1 == 2)
-            {
-              //  string shit = "[0] " + '"'  + '"' + "Frankity" + '"'  + '"' + " (uid: 60d3d054ff595a69, ip: 192.168.1.66)";
-                string[] thisarray = shit.Split(' ');
-                List<string> Mylist = new List<string>();
-                Mylist.AddRange(thisarray);
-                string omg;
-                string qrep;
-                foreach (var item in Mylist)
-                {
-                    // listView1.Invoke(new Action(() => listView1.Items.Add(item[1].ToString())));
-                    // string[] split = item.Split(',');
-                    // ListViewItem lvi = new ListViewItem(split[i]);
-                    if (item == "ip:" || item.Contains("uid"))
-                    {
-                        //listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(item.ToString())));
-                    }
-                    else if(item.Contains('"'))
-                    {
-                        qrep = item.Replace('"', ' ');
-                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(qrep.ToString())));
-                    }
-                    else if (item.Length > 15 && item.Length < 18)
-                    {
-                        listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(item.ToString())));
-                    }
-                    else
-                    {
-                        if (!item.Contains(')'))
-                        {
-                            listView1.Invoke(new Action(() => listView1.Items.Add(item.ToString())));
-                        }
-                        else
-                        {
-                            omg = item.Replace(')', ' ');
-                            listView1.Invoke(new Action(() => listView1.Items[0].SubItems.Add(omg.ToString())));
-                        }
-                    }
-                }
-            }*/
         }
 
         private void button3_Click(object sender, EventArgs e)
