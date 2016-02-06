@@ -16,13 +16,18 @@ namespace Dewricon
         public Form1()
         {
             InitializeComponent();
+            ConForm sd = new ConForm();
+            sd.ShowDialog();
         }
+        
+        ConForm ff = new ConForm();
 
         public Brain dewRcons = new Brain();
-        public bool dewRconConnected = false;
-
-        public void StartConnection()
+        
+        public void StartConnection(string ip)
         {
+            ff.IP = ip;
+
             dewRcons.ws.Connect();
             //dewRcons.ws.ConnectAsync();
             dewRcons.ws.OnOpen += ws_OnOpen;
@@ -31,7 +36,6 @@ namespace Dewricon
             textBox3.Enabled = true;
             btn_Send_to_console.Enabled = true;
         }
-
 
 
         void ws_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
@@ -95,14 +99,13 @@ namespace Dewricon
 
         void ws_OnError(object sender, WebSocketSharp.ErrorEventArgs e)
         {
-            dewRconConnected = false;
             richTextBox1.Invoke(new Action(() => richTextBox1.Text += e.Message + "\n"));
-            StartConnection();
+            ConForm ff = new ConForm();
+            StartConnection(ff.IP);
         }
 
         private void ws_OnOpen(object sender, EventArgs e)
         {
-            dewRconConnected = true;
             //   MessageBox.Show("Connected");
         }
 
@@ -135,17 +138,7 @@ namespace Dewricon
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                StartConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+    
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -230,6 +223,9 @@ namespace Dewricon
         {
             textBox3.Enabled = false;
             btn_Send_to_console.Enabled = false;
+            ConForm cf = new ConForm();
+            cf.ShowDialog();
+
         }
 
         private void kickToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,7 +236,7 @@ namespace Dewricon
             {
                 String text = listView1.Items[intselectedindex].Text;
                 MessageBox.Show(listView1.Items[intselectedindex].Text);
-            } 
+            }
         }
 
         public class Players
@@ -267,12 +263,13 @@ namespace Dewricon
         // test code
         void Button4Click(object sender, EventArgs e)
         {
-
-
+            ConForm cf = new ConForm();
+            var iipp = "";
+            iipp = cf.IP;
             listView1.Items.Clear();
 
             System.Net.WebClient WCD = new System.Net.WebClient();
-            string sgetjson = WCD.DownloadString("http://65.188.39.87:11775");
+            string sgetjson = WCD.DownloadString("http://" + iipp + ":11775");
             dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
             this.Text = "Dewricon: " + getjson["name"];
@@ -285,7 +282,7 @@ namespace Dewricon
 
             if (getjson["teams"] == 0)
             {
-                
+
             }
 
             List<Players> items = new List<Players>();
@@ -326,8 +323,14 @@ namespace Dewricon
                 //String text = listView1.Items[intselectedindex].SubItems[5].Text;
                 MessageBox.Show(listView1.Items[intselectedindex].SubItems[5].Text);
                 //   dewRcons.Send("Server.KickUid " + listView1.Items[0].SubItems[2].Text);   
-            } 
+            }
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+           
+        }
+
 
 
     }
