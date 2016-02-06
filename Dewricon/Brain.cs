@@ -14,12 +14,9 @@ namespace Dewricon
 
     public class Brain
     {
-        public static ConForm cc = new ConForm();
-        
-
         public static string IP {get; set;}
 
-        public WebSocket ws = new WebSocket("ws://" + cc.IP + ":" + "11776", "dew-rcon");
+        public WebSocket ws = new WebSocket("ws://127.0.0.1:11776", "dew-rcon");
         public string lastMessage = "";
         public string lastCommand = "";
 

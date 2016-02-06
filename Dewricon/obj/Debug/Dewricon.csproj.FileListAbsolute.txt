@@ -8,3 +8,6 @@ c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debu
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csproj.GenerateResource.Cache
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.exe
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.ConForm.resources

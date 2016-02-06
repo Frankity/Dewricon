@@ -17,13 +17,13 @@ namespace Dewricon
             InitializeComponent();
         }
 
-        public string IP;
-
+        public string IP { get; set; }
+        
+        Form1 f = new Form1();
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            IP = textBox1.Text;
-            Form1 f1 = new Form1();
-            f1.StartConnection(IP);
         }
+
     }
 }
