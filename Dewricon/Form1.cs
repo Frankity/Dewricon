@@ -196,9 +196,9 @@ namespace Dewricon
             if (intselectedindex >= 0)
             {
                 String text = listView1.Items[intselectedindex].Text;
-//                MessageBox.Show(listView1.Items[intselectedindex].Text);
-                dewRcons.Send("Server.KickPlayer " + text );
-                
+                //                MessageBox.Show(listView1.Items[intselectedindex].Text);
+                dewRcons.Send("Server.KickPlayer " + text);
+
             }
         }
 
@@ -237,7 +237,7 @@ namespace Dewricon
             if (intselectedindex >= 0)
             {
                 //String text = listView1.Items[intselectedindex].SubItems[5].Text;
-               // MessageBox.Show(listView1.Items[intselectedindex].SubItems[5].Text);
+                // MessageBox.Show(listView1.Items[intselectedindex].SubItems[5].Text);
                 dewRcons.Send("Server.KickUid " + listView1.Items[intselectedindex].SubItems[5].Text);
                 //   dewRcons.Send("Server.KickUid " + listView1.Items[0].SubItems[2].Text);   
             }
@@ -245,52 +245,54 @@ namespace Dewricon
 
         public void connserver()
         {
-
-            listView1.Items.Clear();
-
-            System.Net.WebClient WCD = new System.Net.WebClient();
-            string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
-            dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
-
-            this.Text = "Dewricon: " + getjson["name"];
-            label4.Text = getjson["hostPlayer"];
-            label6.Text = getjson["VoIP"];
-            label8.Text = getjson["map"];
-            label10.Text = getjson["variant"];
-            label12.Text = getjson["numPlayers"];
-            label14.Text = getjson["maxPlayers"];
-
-            if (getjson["teams"] == 0)
+            try
             {
 
-            }
+                listView1.Items.Clear();
 
-            List<Players> items = new List<Players>();
-            var dew = getjson["players"];
+                System.Net.WebClient WCD = new System.Net.WebClient();
+                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
+                dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
-            foreach (var item in dew)
-            {
-                try
+                this.Text = "Dewricon: " + getjson["name"];
+                label4.Text = getjson["hostPlayer"];
+                label6.Text = getjson["VoIP"];
+                label8.Text = getjson["map"];
+                label10.Text = getjson["variant"];
+                label12.Text = getjson["numPlayers"];
+                label14.Text = getjson["maxPlayers"];
+
+                List<Players> items = new List<Players>();
+                var dew = getjson["players"];
+
+                foreach (var item in dew)
                 {
-                    var name = item.name;
-                    var score = item.score;
-                    var kills = item.kills;
-                    var assists = item.assists;
-                    var deaths = item.deaths;
-                    var uid = item.uid;
-                    items.Add(new Players() { Name = name, Score = score, Kills = kills, Assists = assists, Deaths = deaths, Uid = uid });
+                    try
+                    {
+                        var name = item.name;
+                        var score = item.score;
+                        var kills = item.kills;
+                        var assists = item.assists;
+                        var deaths = item.deaths;
+                        var uid = item.uid;
+                        items.Add(new Players() { Name = name, Score = score, Kills = kills, Assists = assists, Deaths = deaths, Uid = uid });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.StackTrace);
+                    }
                 }
-                catch (Exception ex)
+
+                for (int i = 0; i < items.Count; i++)
                 {
-                    MessageBox.Show(ex.StackTrace);
+                    ListViewItem v2 = new ListViewItem(items[i].ToListViewItem());
+                    v2.Tag = items[i];
+                    listView1.Invoke(new Action(() => listView1.Items.Add(v2)));
                 }
             }
-
-            for (int i = 0; i < items.Count; i++)
+            catch (Exception ex)
             {
-                ListViewItem v2 = new ListViewItem(items[i].ToListViewItem());
-                v2.Tag = items[i];
-                listView1.Invoke(new Action(() => listView1.Items.Add(v2)));
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -299,8 +301,15 @@ namespace Dewricon
             StartConnection();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            connserver();
+        }
 
-
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            StartConnection();
+        }
     }
 }
 

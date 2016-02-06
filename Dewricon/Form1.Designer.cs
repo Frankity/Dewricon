@@ -87,7 +87,6 @@
             this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kickByUidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kickIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_Send_to_console = new System.Windows.Forms.Button();
@@ -352,7 +351,6 @@
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -389,9 +387,8 @@
             this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(81, 109);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 13);
+            this.label14.Size = new System.Drawing.Size(0, 13);
             this.label14.TabIndex = 36;
-            this.label14.Text = "label14";
             // 
             // label13
             // 
@@ -409,9 +406,8 @@
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(93, 92);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.Size = new System.Drawing.Size(0, 13);
             this.label12.TabIndex = 34;
-            this.label12.Text = "label12";
             // 
             // label11
             // 
@@ -429,9 +425,8 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(65, 74);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(0, 13);
             this.label10.TabIndex = 32;
-            this.label10.Text = "label10";
             // 
             // label9
             // 
@@ -449,9 +444,8 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(52, 56);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.Size = new System.Drawing.Size(0, 13);
             this.label8.TabIndex = 30;
-            this.label8.Text = "label8";
             // 
             // label7
             // 
@@ -469,9 +463,8 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(52, 38);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 28;
-            this.label6.Text = "label6";
             // 
             // label5
             // 
@@ -489,9 +482,8 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(52, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 26;
-            this.label4.Text = "label4";
             // 
             // label3
             // 
@@ -505,12 +497,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(741, 93);
+            this.button4.Location = new System.Drawing.Point(8, 176);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.Size = new System.Drawing.Size(153, 23);
             this.button4.TabIndex = 10;
-            this.button4.Text = "button4";
+            this.button4.Text = "Refresh Player List";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // listView1
             // 
@@ -526,7 +519,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(167, 6);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(568, 315);
+            this.listView1.Size = new System.Drawing.Size(684, 315);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -590,20 +583,11 @@
             this.kickIPToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.kickIPToolStripMenuItem.Text = "Kick IP";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(741, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Ban";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(741, 6);
+            this.button1.Location = new System.Drawing.Point(8, 147);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Connect to Server";
             this.button1.UseVisualStyleBackColor = true;
@@ -757,6 +741,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Dewricon";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -810,7 +795,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btn_Send_to_console;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
