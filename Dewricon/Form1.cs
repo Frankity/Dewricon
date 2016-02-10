@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Dewricon
 {
@@ -35,10 +36,13 @@ namespace Dewricon
             connserver();
         }
 
-        public void saveSettings(string sname)
+        public void saveSettings(string Nam, string V, int S, int Mp)
         {
-
-        }
+            dewRcons.ws.Send("Server.Name " + Nam);
+            dewRcons.ws.Send("Server.VoIP.Enabled " + V);
+            dewRcons.ws.Send("Server.SprintEnabled " + S);
+            dewRcons.ws.Send("Server.MaxPlayers " + Mp);
+        } 
 
         void ws_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
@@ -201,9 +205,7 @@ namespace Dewricon
             if (intselectedindex >= 0)
             {
                 String text = listView1.Items[intselectedindex].Text;
-                //                MessageBox.Show(listView1.Items[intselectedindex].Text);
                 dewRcons.Send("Server.KickPlayer " + text);
-
             }
         }
 
@@ -232,17 +234,17 @@ namespace Dewricon
 
         private void kickByUidToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int intselectedindex = listView1.SelectedIndices[0];
+        }
+          /*  int intselectedindex = listView1.SelectedIndices[0];
             if (intselectedindex >= 0)
             {
                 //String text = listView1.Items[intselectedindex].SubItems[5].Text;
                 // MessageBox.Show(listView1.Items[intselectedindex].SubItems[5].Text);
                 dewRcons.Send("Server.KickUid " + listView1.Items[intselectedindex].SubItems[5].Text);
                 //   dewRcons.Send("Server.KickUid " + listView1.Items[0].SubItems[2].Text);   
-            }
-        }
+            }*/
 
-        
+                Settings s22 = new Settings();
 
         public void connserver()
         {
@@ -252,7 +254,7 @@ namespace Dewricon
                 listView1.Items.Clear();
 
                 System.Net.WebClient WCD = new System.Net.WebClient();
-                string sgetjson = WCD.DownloadString("http://67.220.26.156:11775");
+                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775");
                 dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
                 this.Text = "Dewricon: " + getjson["name"];
@@ -264,6 +266,8 @@ namespace Dewricon
                 label12.Text = getjson["numPlayers"];
                 label14.Text = getjson["maxPlayers"];
 
+                s22.GetData(getjson["VoIP"].ToString(), (int)getjson["sprintEnabled"], (int)getjson["maxPlayers"]);
+                
                 List<Players> items = new List<Players>();
                 var dew = getjson["players"];
 
@@ -317,7 +321,10 @@ namespace Dewricon
         {
             dewRcons.ws.Close();
             StartConnection();
-            
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            toolStripStatusLabel1.Text = "Vr: " +  fvi.FileVersion;
             
         }
 
@@ -331,9 +338,25 @@ namespace Dewricon
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            connserver();
             Settings s1 = new Settings();
             s1.ShowDialog();
         }
+
+        private void kickPlayerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int intselectedindex = listView1.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                dewRcons.ws.Send("Server.KickPlayer " + listView1.Items[intselectedindex].Text);
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Thanks for using... Frankity");
+        }
+
     }
 }
 

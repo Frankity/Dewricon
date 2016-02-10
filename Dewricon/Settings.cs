@@ -17,19 +17,38 @@ namespace Dewricon
             InitializeComponent();
         }
 
-        
-
         private void Settings_Load(object sender, EventArgs e)
         {
             textBox1.Text = Form1.title;
-            
+            loadSettings();
         }
+
+        public void loadSettings() {
+            if (Voip == "True")
+            { checkBox1.Checked = true; }
+            else { checkBox1.Checked = false; }
+            if (Sprint == 1)
+                { checkBox2.Checked = true; }
+            else { checkBox2.Checked = false; }
+            numericUpDown1.Value = Mplayers;
+        }
+
+        public static string Voip;
+        public static int Sprint;
+        public static int Mplayers;
+
+            public void GetData(string voip, int sprint, int mplayers)
+            {
+                Voip = voip;
+                Sprint = sprint;
+                Mplayers = mplayers;
+            }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Form1 d1 = new Form1();
             var sname = textBox1.Text.ToString();
-            d1.saveSettings(sname);
+            d1.saveSettings(textBox1.Text, Voip , Sprint, Mplayers);
         }
     }
 }

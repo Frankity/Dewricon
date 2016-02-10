@@ -1,0 +1,13 @@
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\Dewricon.exe.config
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\Dewricon.exe
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\Dewricon.pdb
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\Newtonsoft.Json.dll
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\websocket-sharp.dll
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\Newtonsoft.Json.xml
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Release\websocket-sharp.xml
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.Form1.resources
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.Properties.Resources.resources
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.Settings.resources
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.csproj.GenerateResource.Cache
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.exe
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.pdb

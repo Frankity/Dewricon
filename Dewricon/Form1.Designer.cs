@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -53,20 +55,21 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.kickByUidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kickIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_Send_to_console = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.kickPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -78,7 +81,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(824, 379);
+            this.tabControl1.Size = new System.Drawing.Size(703, 438);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -92,10 +95,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(816, 353);
+            this.tabPage1.Size = new System.Drawing.Size(695, 412);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Players";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(9, 230);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Quick Settings";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button2
             // 
@@ -269,7 +282,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(167, 6);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(641, 339);
+            this.listView1.Size = new System.Drawing.Size(520, 382);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -292,7 +305,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Assists";
-            this.columnHeader4.Width = 55;
+            this.columnHeader4.Width = 71;
             // 
             // columnHeader5
             // 
@@ -302,28 +315,7 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Uid";
-            this.columnHeader6.Width = 201;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kickByUidToolStripMenuItem,
-            this.kickIPToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 48);
-            // 
-            // kickByUidToolStripMenuItem
-            // 
-            this.kickByUidToolStripMenuItem.Name = "kickByUidToolStripMenuItem";
-            this.kickByUidToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.kickByUidToolStripMenuItem.Text = "Kick by Uid";
-            this.kickByUidToolStripMenuItem.Click += new System.EventHandler(this.kickByUidToolStripMenuItem_Click);
-            // 
-            // kickIPToolStripMenuItem
-            // 
-            this.kickIPToolStripMenuItem.Name = "kickIPToolStripMenuItem";
-            this.kickIPToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.kickIPToolStripMenuItem.Text = "Kick IP";
+            this.columnHeader6.Width = 145;
             // 
             // button1
             // 
@@ -343,7 +335,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(816, 353);
+            this.tabPage2.Size = new System.Drawing.Size(695, 412);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Console";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -352,9 +344,9 @@
             // 
             this.btn_Send_to_console.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Send_to_console.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Send_to_console.Location = new System.Drawing.Point(700, 322);
+            this.btn_Send_to_console.Location = new System.Drawing.Point(607, 369);
             this.btn_Send_to_console.Name = "btn_Send_to_console";
-            this.btn_Send_to_console.Size = new System.Drawing.Size(79, 24);
+            this.btn_Send_to_console.Size = new System.Drawing.Size(78, 23);
             this.btn_Send_to_console.TabIndex = 2;
             this.btn_Send_to_console.Text = "Send";
             this.btn_Send_to_console.UseVisualStyleBackColor = true;
@@ -454,9 +446,9 @@
             this.textBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(8, 323);
+            this.textBox3.Location = new System.Drawing.Point(8, 369);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(688, 22);
+            this.textBox3.Size = new System.Drawing.Size(594, 22);
             this.textBox3.TabIndex = 1;
             // 
             // richTextBox1
@@ -470,37 +462,62 @@
             this.richTextBox1.Location = new System.Drawing.Point(8, 6);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(770, 311);
+            this.richTextBox1.Size = new System.Drawing.Size(679, 357);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // button3
+            // statusStrip1
             // 
-            this.button3.Location = new System.Drawing.Point(9, 230);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Quick Settings";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 416);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(703, 22);
+            this.statusStrip1.TabIndex = 15;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kickPlayerToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(132, 26);
+            // 
+            // kickPlayerToolStripMenuItem
+            // 
+            this.kickPlayerToolStripMenuItem.Name = "kickPlayerToolStripMenuItem";
+            this.kickPlayerToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.kickPlayerToolStripMenuItem.Text = "Kick Player";
+            this.kickPlayerToolStripMenuItem.Click += new System.EventHandler(this.kickPlayerToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 379);
+            this.ClientSize = new System.Drawing.Size(703, 438);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Dewricon";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -517,12 +534,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ToolStripMenuItem kickByUidToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kickIPToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -539,6 +553,10 @@
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem kickPlayerToolStripMenuItem;
     }
 }
 
