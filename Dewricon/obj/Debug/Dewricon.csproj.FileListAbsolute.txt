@@ -10,7 +10,6 @@ c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debu
 c:\users\duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.ConForm.resources
 C:\Users\Frankity\Documents\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
 C:\Users\Frankity\Documents\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
 C:\Users\Frankity\Documents\Dewricon\Dewricon\obj\Debug\Dewricon.ConForm.resources
@@ -24,3 +23,5 @@ C:\Users\Frankity\Documents\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Frankity\Documents\Dewricon\Dewricon\bin\Debug\websocket-sharp.xml
 C:\Users\Frankity\Documents\Dewricon\Dewricon\obj\Debug\Dewricon.exe
 C:\Users\Frankity\Documents\Dewricon\Dewricon\obj\Debug\Dewricon.pdb
+C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.xml
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources

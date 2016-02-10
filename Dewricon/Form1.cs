@@ -18,8 +18,10 @@ namespace Dewricon
             InitializeComponent();
         }
 
-        public Brain dewRcons = new Brain();
+        public static Brain dewRcons = new Brain();
         public bool dewRconConnected = false;
+        public static string title = "";
+     //   public HttpServer htp = new HttpServer();
 
         public void StartConnection()
         {
@@ -33,7 +35,10 @@ namespace Dewricon
             connserver();
         }
 
+        public void saveSettings(string sname)
+        {
 
+        }
 
         void ws_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
@@ -223,13 +228,7 @@ namespace Dewricon
             }
         }
 
-        // test code
-        void Button4Click(object sender, EventArgs e)
-        {
-
-
-        }
-
+        public static List<string> dick = new List<string>();
 
         private void kickByUidToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -243,6 +242,8 @@ namespace Dewricon
             }
         }
 
+        
+
         public void connserver()
         {
             try
@@ -251,10 +252,11 @@ namespace Dewricon
                 listView1.Items.Clear();
 
                 System.Net.WebClient WCD = new System.Net.WebClient();
-                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
+                string sgetjson = WCD.DownloadString("http://67.220.26.156:11775");
                 dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
                 this.Text = "Dewricon: " + getjson["name"];
+                title = getjson["name"];
                 label4.Text = getjson["hostPlayer"];
                 label6.Text = getjson["VoIP"];
                 label8.Text = getjson["map"];
@@ -276,6 +278,7 @@ namespace Dewricon
                         var deaths = item.deaths;
                         var uid = item.uid;
                         items.Add(new Players() { Name = name, Score = score, Kills = kills, Assists = assists, Deaths = deaths, Uid = uid });
+                        dick.Add(name.ToString());
                     }
                     catch (Exception ex)
                     {
@@ -288,16 +291,20 @@ namespace Dewricon
                     ListViewItem v2 = new ListViewItem(items[i].ToListViewItem());
                     v2.Tag = items[i];
                     listView1.Invoke(new Action(() => listView1.Items.Add(v2)));
+                        
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
+        //    htp.Start();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            dewRcons.ws.Close();
             StartConnection();
         }
 
@@ -308,7 +315,24 @@ namespace Dewricon
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            dewRcons.ws.Close();
             StartConnection();
+            
+            
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            if (dewRcons.ws.IsAlive)
+            {
+                dewRcons.ws.Close();
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Settings s1 = new Settings();
+            s1.ShowDialog();
         }
     }
 }
