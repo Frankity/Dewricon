@@ -1,0 +1,6 @@
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Release\PingPlugin.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Release\PingPlugin.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Release\DewPlugins.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Release\DewPlugins.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Release\PingPlugin.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Release\PingPlugin.pdb

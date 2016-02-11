@@ -8,7 +8,7 @@ using System.Net;
 using WebSocketSharp;
 using WebSocketSharp.Net;
 
-namespace Dewricon
+namespace Brain
 {
     public class Brain
     {

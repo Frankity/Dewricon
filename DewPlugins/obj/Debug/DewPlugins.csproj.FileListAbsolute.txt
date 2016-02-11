@@ -1,0 +1,5 @@
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\bin\Debug\DewPlugins.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\bin\Debug\DewPlugins.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.csprojResolveAssemblyReference.cache
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.pdb

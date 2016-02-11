@@ -1,0 +1,7 @@
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\bin\Debug\Brain.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\bin\Debug\Brain.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\bin\Debug\websocket-sharp.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\bin\Debug\websocket-sharp.xml
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\obj\Debug\Brain.csprojResolveAssemblyReference.cache
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\obj\Debug\Brain.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Brain\obj\Debug\Brain.pdb

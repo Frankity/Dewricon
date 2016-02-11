@@ -11,3 +11,6 @@ C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Rele
 C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.csproj.GenerateResource.Cache
 C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.exe
 C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Release\Dewricon.csprojResolveAssemblyReference.cache
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Release\DewPlugins.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Release\DewPlugins.pdb

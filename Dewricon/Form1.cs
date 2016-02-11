@@ -7,27 +7,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using Dewricon.Helpers;
 
 namespace Dewricon
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
         }
 
+
+        public void LoadPlugins()
+        {
+
+            Dictionary<string, DewPlugins.DewPlugins> _plugins;
+
+            //---------------------Plugins--------------------//
+
+            _plugins = new Dictionary<string, DewPlugins.DewPlugins>();
+            ICollection<DewPlugins.DewPlugins> plugins = GenLoadPlugin<DewPlugins.DewPlugins>.LoladPlugins(AppDomain.CurrentDomain.BaseDirectory + "plugins");
+            try
+            {
+
+                foreach (var item in plugins)
+                {
+                    _plugins.Add(item.Name, item);
+                    richTextBox1.AppendText(item.Name + " " + item.Version + " by " + item.Author  + " loaded...");
+                    item.Run();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            //---------------------Plugins--------------------//
+        
+        }
+
+        # region
+
         public static Brain dewRcons = new Brain();
         public bool dewRconConnected = false;
         public static string title = "";
-     //   public HttpServer htp = new HttpServer();
 
         public void StartConnection()
         {
             dewRcons.ws.Connect();
-            //dewRcons.ws.ConnectAsync();
             dewRcons.ws.OnOpen += ws_OnOpen;
             dewRcons.ws.OnError += ws_OnError;
             dewRcons.ws.OnMessage += ws_OnMessage;
@@ -42,7 +74,7 @@ namespace Dewricon
             dewRcons.ws.Send("Server.VoIP.Enabled " + V);
             dewRcons.ws.Send("Server.SprintEnabled " + S);
             dewRcons.ws.Send("Server.MaxPlayers " + Mp);
-        } 
+        }
 
         void ws_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
@@ -50,7 +82,7 @@ namespace Dewricon
             {
 
                 dewRcons.lastMessage = e.Data.ToString();
-                richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[REC]: \n" + e.Data.ToString() + "\n"));
+                richTextBox1.Invoke(new Action(() => richTextBox1.AppendText("[REC]: \n" + e.Data.ToString() + "\n")));
             }
             catch (Exception ex)
             {
@@ -63,14 +95,13 @@ namespace Dewricon
         void ws_OnError(object sender, WebSocketSharp.ErrorEventArgs e)
         {
             dewRconConnected = false;
-            richTextBox1.Invoke(new Action(() => richTextBox1.Text += e.Message + "\n"));
+            richTextBox1.Invoke(new Action(() => richTextBox1.AppendText(e.Message + "\n")));
             StartConnection();
         }
 
         private void ws_OnOpen(object sender, EventArgs e)
         {
             dewRconConnected = true;
-            //   MessageBox.Show("Connected");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -81,24 +112,32 @@ namespace Dewricon
 
         private void btn_Send_to_console_Click(object sender, EventArgs e)
         {
-            try
+            if (dewRcons.ws.IsAlive)
             {
-                richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
-                if (textBox3.Text.StartsWith("/clear"))
-                {
-                    richTextBox1.Clear();
-                    textBox3.Clear();
-                }
-                else
-                {
-                    dewRcons.Send(textBox3.Text);
-                    textBox3.Clear();
 
+                try
+                {
+                    richTextBox1.Invoke(new Action(() => richTextBox1.AppendText("[SENT]: " + textBox3.Text + "\n\n")));
+                    if (textBox3.Text.StartsWith("/clear"))
+                    {
+                        richTextBox1.Clear();
+                        textBox3.Clear();
+                    }
+                    else
+                    {
+                        dewRcons.Send(textBox3.Text);
+                        textBox3.Clear();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("You're not conencted");
             }
         }
 
@@ -145,7 +184,7 @@ namespace Dewricon
             {
                 if (e.KeyChar == (char)Keys.Enter)
                 {
-                    richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
+                    richTextBox1.Invoke(new Action(() => richTextBox1.AppendText("[SENT]: " + textBox3.Text + "\n\n")));/*));*/
                     if (textBox3.Text.StartsWith("/clear"))
                     {
                         richTextBox1.Clear();
@@ -172,7 +211,7 @@ namespace Dewricon
 
                 if (e.KeyCode == Keys.Enter)
                 {
-                    richTextBox1.Invoke(new Action(() => richTextBox1.Text += "[SENT]: " + textBox3.Text + "\n\n"));/*));*/
+                    richTextBox1.Invoke(new Action(() => richTextBox1.AppendText("[SENT]: " + textBox3.Text + "\n\n")));/*));*/
                     if (textBox3.Text.StartsWith("/clear"))
                     {
                         richTextBox1.Clear();
@@ -232,19 +271,7 @@ namespace Dewricon
 
         public static List<string> dick = new List<string>();
 
-        private void kickByUidToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-          /*  int intselectedindex = listView1.SelectedIndices[0];
-            if (intselectedindex >= 0)
-            {
-                //String text = listView1.Items[intselectedindex].SubItems[5].Text;
-                // MessageBox.Show(listView1.Items[intselectedindex].SubItems[5].Text);
-                dewRcons.Send("Server.KickUid " + listView1.Items[intselectedindex].SubItems[5].Text);
-                //   dewRcons.Send("Server.KickUid " + listView1.Items[0].SubItems[2].Text);   
-            }*/
-
-                Settings s22 = new Settings();
+        Settings s22 = new Settings();
 
         public void connserver()
         {
@@ -267,7 +294,7 @@ namespace Dewricon
                 label14.Text = getjson["maxPlayers"];
 
                 s22.GetData(getjson["VoIP"].ToString(), (int)getjson["sprintEnabled"], (int)getjson["maxPlayers"]);
-                
+
                 List<Players> items = new List<Players>();
                 var dew = getjson["players"];
 
@@ -295,15 +322,15 @@ namespace Dewricon
                     ListViewItem v2 = new ListViewItem(items[i].ToListViewItem());
                     v2.Tag = items[i];
                     listView1.Invoke(new Action(() => listView1.Items.Add(v2)));
-                        
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
-        //    htp.Start();
+
+            //    htp.Start();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -319,13 +346,13 @@ namespace Dewricon
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            dewRcons.ws.Close();
+            //dewRcons.ws.Close();
             StartConnection();
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
 
-            toolStripStatusLabel1.Text = "Vr: " +  fvi.FileVersion;
-            
+            toolStripStatusLabel1.Text = "Vr: " + fvi.FileVersion;
+
         }
 
         private void button2_Click_2(object sender, EventArgs e)
@@ -356,6 +383,14 @@ namespace Dewricon
         {
             MessageBox.Show("Thanks for using... Frankity");
         }
+
+        # endregion
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LoadPlugins();
+        }
+
 
     }
 }
