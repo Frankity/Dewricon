@@ -430,6 +430,7 @@ namespace Dewricon
                 if (items.Count == intselectedindex +1 )
                 {
                     item.Value.Run();
+                    
                 }
             }
         }

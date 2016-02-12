@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DewPlugins", "DewPlugins\De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPlugin", "PingPlugin\PingPlugin.csproj", "{F4A3120D-9185-4CEE-A305-BD6A8EE7AC45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Ubuntu|Any CPU = Debug_Ubuntu|Any CPU
@@ -41,6 +43,14 @@ Global
 		{F4A3120D-9185-4CEE-A305-BD6A8EE7AC45}.Release_Ubuntu|Any CPU.Build.0 = Release|Any CPU
 		{F4A3120D-9185-4CEE-A305-BD6A8EE7AC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A3120D-9185-4CEE-A305-BD6A8EE7AC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Debug_Ubuntu|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Debug_Ubuntu|Any CPU.Build.0 = Debug|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Release_Ubuntu|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Release_Ubuntu|Any CPU.Build.0 = Release|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD221C8-A9A4-4241-B2F2-FB7D46348D0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
