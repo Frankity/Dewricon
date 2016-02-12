@@ -21,34 +21,26 @@ namespace Dewricon
             InitializeComponent();
         }
 
+        //---------------------Plugins--------------------//
+
+        public Dictionary<string, DewPlugins.DewPlugins> _plugins = new Dictionary<string, DewPlugins.DewPlugins>();
 
         public void LoadPlugins()
         {
-
-            Dictionary<string, DewPlugins.DewPlugins> _plugins;
-
-            //---------------------Plugins--------------------//
-
-            _plugins = new Dictionary<string, DewPlugins.DewPlugins>();
-            ICollection<DewPlugins.DewPlugins> plugins = GenLoadPlugin<DewPlugins.DewPlugins>.LoladPlugins(AppDomain.CurrentDomain.BaseDirectory + "plugins");
             try
             {
-
+                ICollection<DewPlugins.DewPlugins> plugins = GenLoadPlugin<DewPlugins.DewPlugins>.LoladPlugins(AppDomain.CurrentDomain.BaseDirectory + "plugins");
                 foreach (var item in plugins)
                 {
                     _plugins.Add(item.Name, item);
-                    richTextBox1.AppendText(item.Name + " " + item.Version + " by " + item.Author  + " loaded...");
-                    item.Run();
                 }
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             //---------------------Plugins--------------------//
-        
+
         }
 
         # region
@@ -59,13 +51,18 @@ namespace Dewricon
 
         public void StartConnection()
         {
-            dewRcons.ws.Connect();
-            dewRcons.ws.OnOpen += ws_OnOpen;
-            dewRcons.ws.OnError += ws_OnError;
-            dewRcons.ws.OnMessage += ws_OnMessage;
-            textBox3.Enabled = true;
-            btn_Send_to_console.Enabled = true;
-            connserver();
+            try
+            {
+                //dewRcons.ws.Connect();
+                dewRcons.ws.OnOpen += ws_OnOpen;
+                dewRcons.ws.OnError += ws_OnError;
+                dewRcons.ws.OnMessage += ws_OnMessage;
+                connserver();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void saveSettings(string Nam, string V, int S, int Mp)
@@ -232,12 +229,6 @@ namespace Dewricon
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            textBox3.Enabled = false;
-            btn_Send_to_console.Enabled = false;
-        }
-
         private void kickToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int intselectedindex = listView1.SelectedIndices[0];
@@ -335,8 +326,11 @@ namespace Dewricon
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dewRcons.ws.Close();
-            StartConnection();
+            if (!dewRcons.ws.IsAlive)
+            {
+                dewRcons.ws.Close();
+                StartConnection();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -344,15 +338,52 @@ namespace Dewricon
             connserver();
         }
 
+        public class PluginsList
+        {
+            public string Name { get; set; }
+            public string Author { get; set; }
+            public string Version { get; set; }
+            public string[] ToListViewItem()
+            {
+                return new string[] {
+                    Name.ToString(),
+                    Author.ToString(),
+                    Version.ToString(),
+                };
+            }
+        }
+
+        List<PluginsList> items = new List<PluginsList>();
+        public void PopulatePluginList()
+        {
+            foreach (var item in _plugins)
+            {
+                try
+                {
+                    items.Add(new PluginsList() { Name = item.Value.Name, Author = item.Value.Author, Version = item.Value.Version });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                for (int i = 0; i < items.Count; i++)
+                {
+                    ListViewItem v2 = new ListViewItem(items[i].ToListViewItem());
+                    v2.Tag = items[i];
+                    listView2.Invoke(new Action(() => listView2.Items.Add(v2)));
+                }
+            }
+        }
+
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            //dewRcons.ws.Close();
             StartConnection();
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
 
             toolStripStatusLabel1.Text = "Vr: " + fvi.FileVersion;
-
+            LoadPlugins();
+            PopulatePluginList();
         }
 
         private void button2_Click_2(object sender, EventArgs e)
@@ -386,12 +417,22 @@ namespace Dewricon
 
         # endregion
 
-        private void button5_Click(object sender, EventArgs e)
+
+        private void listView2_ItemActivate(object sender, EventArgs e)
         {
-            LoadPlugins();
+            int intselectedindex = listView2.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                String text = listView2.Items[intselectedindex].Text;
+            }
+            foreach (var item in _plugins)
+            {
+                if (items.Count == intselectedindex +1 )
+                {
+                    item.Value.Run();
+                }
+            }
         }
-
-
     }
 }
 
