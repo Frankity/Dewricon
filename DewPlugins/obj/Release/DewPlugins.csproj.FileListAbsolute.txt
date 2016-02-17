@@ -1,5 +1,0 @@
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\bin\Release\DewPlugins.dll
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\bin\Release\DewPlugins.pdb
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Release\DewPlugins.csprojResolveAssemblyReference.cache
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Release\DewPlugins.dll
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Release\DewPlugins.pdb

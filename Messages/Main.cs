@@ -33,11 +33,23 @@ namespace Messages
                 return "Frankity";
             }
         }
-
       
 
         public void Run()
         {
+
+        public void ReadConfig(file)
+        {
+            StreamReader Sr = new StreamReader(@"\plugins\Messages.txt");
+            Sr.ReadToEnd();
+
+            Console.WriteLine(Sr.ToString());
+        }
+
+        public void Run()
+        {
+            ReadConfig();
+
             Console.WriteLine("Message Test :D");
         }
     }
