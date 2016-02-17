@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using WebSocketSharp.Net;
 using WebSocketSharp;
+using Newtonsoft.Json;
 using System.IO;
+using System.Windows.Forms;
 
 namespace PingPlugin
 {
@@ -47,6 +49,41 @@ namespace PingPlugin
             pg.ShowDialog();
         }
 
+
+        List<string> Players = new List<string>();
+
+        public void GetPlayers()
+        {
+            System.Net.WebClient WCD = new System.Net.WebClient();
+            string sgetjson = WCD.DownloadString("http://67.220.26.156:11775/");
+            dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
+
+            var dew = getjson["players"];
+
+            foreach (var item in dew)
+            {
+                try
+                {
+                    var name = item.name;
+                     
+                    Players.Add(name.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.StackTrace);
+                }
+            }
+            derp();
+        }
+
+        public void derp()
+        {
+            for (int i = 0; i < Players.Count; i++)
+			{
+                ws.Send("ping " + Players[i]);
+            }
+        }
+
         public void Run()
         {
             ws.Connect();
@@ -54,6 +91,7 @@ namespace PingPlugin
             ws.Send("list");
             Console.WriteLine("sending list command");
             ws.Close();
+            GetPlayers();
         }
 
         static string path = AppDomain.CurrentDomain.BaseDirectory + @"plugins\PingPlugin.txt";
@@ -63,7 +101,6 @@ namespace PingPlugin
             if (!File.Exists(path))
             {
                 File.Create(path).Dispose();
-
                 TextWriter tw = new StreamWriter(path, true);
                 tw.WriteLine("# Config file for PingPlugin ... do not delete this line.");
                 tw.WriteLine("180");
