@@ -29,15 +29,15 @@ namespace Dewricon
         {
             try
             {
-                ICollection<DewPlugins.DewPlugins> plugins = GenLoadPlugin<DewPlugins.DewPlugins>.LoladPlugins(AppDomain.CurrentDomain.BaseDirectory + "plugins");
+                ICollection<DewPlugins.DewPlugins> plugins = GenLoadPlugin<DewPlugins.DewPlugins>.LoladPlugins(AppDomain.CurrentDomain.BaseDirectory + @"plugins\");
                 foreach (var item in plugins)
                 {
-                    _plugins.Add(item.Name, item);
+                    _plugins.Add(item.Author, item);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
             }
             //---------------------Plugins--------------------//
 
@@ -419,6 +419,11 @@ namespace Dewricon
 
         private void listView2_ItemActivate(object sender, EventArgs e)
         {
+            
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             int intselectedindex = listView2.SelectedIndices[0];
             if (intselectedindex >= 0)
             {
@@ -426,12 +431,33 @@ namespace Dewricon
             }
             foreach (var item in _plugins)
             {
-                if (items.Count == intselectedindex +1 )
+                if (items.Count == intselectedindex + 1)
                 {
                     item.Value.Run();
-                    
+
                 }
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int intselectedindex = listView2.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                String text = listView2.Items[intselectedindex].Text;
+            }
+            foreach (var item in _plugins)
+            {
+                if (items.Count == intselectedindex + 1)
+                {
+                    item.Value.Config();
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LoadPlugins();
         }
     }
 }

@@ -5,6 +5,7 @@
         string Name { get; }
         string Author { get; }
         string Version { get; }
+        void Config();
         void Run();
     }
 }

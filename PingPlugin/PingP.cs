@@ -40,10 +40,15 @@ namespace PingPlugin
         public WebSocket ws = new WebSocket("ws://127.0.0.1:11776", "dew-rcon");
 
         public static PluginForm pg = new PluginForm();
-        public void Run()
+
+        public void Config()
         {
             CheckFile();
             pg.ShowDialog();
+        }
+
+        public void Run()
+        {
             ws.Connect();
             ws.OnMessage += ws_OnMessage;
             ws.Send("list");
