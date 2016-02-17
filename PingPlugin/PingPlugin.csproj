@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <NuGetPackageImportStamp>adb6ce45</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>b1d146ac</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,7 +75,9 @@
     <PostBuildEvent>copy /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\bin\debug\plugins\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
+    <Content Include="FodyWeavers.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -90,7 +92,16 @@
     <Error Condition="!Exists('..\packages\Fody.1.26.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.26.1\build\Fody.targets'))" />
   </Target>
   <PropertyGroup>
+<<<<<<< HEAD
     <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\$(OutDir)plugins\$(TargetFileName)"</PostBuildEvent>
+=======
+    <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)plugins\" (
+        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    ) ELSE (
+        MKDIR "$(SolutionDir)$(OutDir)plugins\"
+        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    )</PostBuildEvent>
+>>>>>>> db69b0f96e724a29e169a8413c006189c42d3d08
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
