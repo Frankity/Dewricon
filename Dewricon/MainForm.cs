@@ -274,7 +274,7 @@ namespace Dewricon
                 listView1.Items.Clear();
 
                 System.Net.WebClient WCD = new System.Net.WebClient();
-                string sgetjson = WCD.DownloadString("http://67.220.26.156:11775/");
+                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
                 dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
                 if (this.InvokeRequired)
