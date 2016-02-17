@@ -7,4 +7,3 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\De
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\DewPlugins.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.pdb
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\websocket-sharp.xml

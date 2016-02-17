@@ -1,3 +1,3 @@
 # Config file for PingPlugin ... do not delete this line.
-35
+150
 25

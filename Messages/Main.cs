@@ -35,10 +35,8 @@ namespace Messages
         }
       
 
-        public void Run()
-        {
 
-        public void ReadConfig(file)
+        public void ReadConfig()
         {
             StreamReader Sr = new StreamReader(@"\plugins\Messages.txt");
             Sr.ReadToEnd();
@@ -48,7 +46,6 @@ namespace Messages
 
         public void Run()
         {
-            ReadConfig();
 
             Console.WriteLine("Message Test :D");
         }
