@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <NuGetPackageImportStamp>adb6ce45</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>b1d146ac</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +74,9 @@
     <PostBuildEvent>copy /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\bin\debug\plugins\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
+    <Content Include="FodyWeavers.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,7 +95,7 @@
         COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
     ) ELSE (
         MKDIR "$(SolutionDir)$(OutDir)plugins\"
-        COPY /Y "$(TargetPath) $(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
     )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />

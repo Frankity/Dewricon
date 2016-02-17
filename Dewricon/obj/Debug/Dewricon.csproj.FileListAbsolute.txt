@@ -15,3 +15,8 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debu
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
 C:\Users\leefo\Source\Repos\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Form1.resources
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Properties.Resources.resources
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.csproj.GenerateResource.Cache

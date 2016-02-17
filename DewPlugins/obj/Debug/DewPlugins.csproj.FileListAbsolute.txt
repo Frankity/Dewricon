@@ -3,3 +3,6 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\bin\De
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\DewPlugins\obj\Debug\DewPlugins.csprojResolveAssemblyReference.cache
+C:\Users\leefo\Source\Repos\Dewricon\DewPlugins\obj\Debug\DewPlugins.csprojResolveAssemblyReference.cache
+C:\Users\leefo\Source\Repos\Dewricon\DewPlugins\obj\Debug\DewPlugins.dll
+C:\Users\leefo\Source\Repos\Dewricon\DewPlugins\obj\Debug\DewPlugins.pdb
