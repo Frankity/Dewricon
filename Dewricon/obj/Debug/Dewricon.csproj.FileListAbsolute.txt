@@ -3,7 +3,6 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debu
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\DewPlugins.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.xml
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Form1.resources
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Properties.Resources.resources
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources

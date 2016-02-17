@@ -125,12 +125,8 @@
   </Target>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>IF EXIST $(SolutionDir)$(OutDir) (
-        COPY /Y $(TargetPath) $(SolutionDir)$(OutDir)$(TargetFileName)
-    ) ELSE (
-        MKDIR $(SolutionDir)$(OutDir)
-        COPY /Y $(TargetPath) $(SolutionDir)$(OutDir)$(TargetFileName)
-    )</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
