@@ -430,13 +430,13 @@ namespace Dewricon
             if (intselectedindex >= 0)
             {
                 String text = listView2.Items[intselectedindex].Text;
+                listView2.Items[intselectedindex].SubItems[3].Text = "Yes";
             }
             foreach (var item in _plugins)
             {
                 if (items.Count == intselectedindex + 1)
                 {
                     item.Value.Run();
-
                 }
             }
         }
@@ -460,6 +460,23 @@ namespace Dewricon
         private void button5_Click(object sender, EventArgs e)
         {
             LoadPlugins();
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int intselectedindex = listView2.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                String text = listView2.Items[intselectedindex].Text; 
+                listView2.Items[intselectedindex].SubItems[3].Text = "No";
+            }
+            foreach (var item in _plugins)
+            {
+                if (items.Count == intselectedindex + 1)
+                {
+                    item.Value.Stop();
+                }
+            }
         }
     }
 }

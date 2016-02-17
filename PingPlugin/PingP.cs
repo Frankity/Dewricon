@@ -77,6 +77,11 @@ namespace PingPlugin
             }
         }
 
+        public void Stop()
+        {
+            Console.WriteLine("plugin Stoped");
+        }
+
         public static void SaveConfig()
         {
             if (File.Exists(path))

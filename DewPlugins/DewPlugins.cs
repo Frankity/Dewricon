@@ -7,5 +7,6 @@
         string Version { get; }
         void Config();
         void Run();
+        void Stop();
     }
 }

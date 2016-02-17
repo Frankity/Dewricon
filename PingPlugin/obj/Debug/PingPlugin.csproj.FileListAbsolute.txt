@@ -2,6 +2,8 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\De
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\PingPlugin.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\DewPlugins.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\websocket-sharp.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\bin\Debug\DewPlugins.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.csprojResolveAssemblyReference.cache
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.PluginForm.resources
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.csproj.GenerateResource.Cache
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.dll

@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="DewPlugins, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dewricon\bin\Debug\DewPlugins.dll</HintPath>
+      <HintPath>..\DewPlugins\bin\Debug\DewPlugins.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,12 +93,8 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\$(OutDir)plugins\$(TargetFileName)"</PostBuildEvent>
-    <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)plugins\" (
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
-    ) ELSE (
-        MKDIR "$(SolutionDir)$(OutDir)plugins\"
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
-    )</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
