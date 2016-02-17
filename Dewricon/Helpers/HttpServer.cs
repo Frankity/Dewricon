@@ -60,11 +60,11 @@ namespace Dewricon
                     Console.WriteLine("lol");
 
                     List<string> li = new List<string>();
-                    foreach (var item in Form1.dick)
+                    foreach (var item in MainForm.dick)
                     {
                         li.Add(item);
                     }
-                        for (int i = 0; i < Form1.dick.Count; i++)
+                        for (int i = 0; i < MainForm.dick.Count; i++)
                         {
                             var derp = li[i];
                             Console.WriteLine(derp);

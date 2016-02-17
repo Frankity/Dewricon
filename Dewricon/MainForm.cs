@@ -13,10 +13,10 @@ using Dewricon.Helpers;
 
 namespace Dewricon
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -343,12 +343,14 @@ namespace Dewricon
             public string Name { get; set; }
             public string Author { get; set; }
             public string Version { get; set; }
+            public string Status { get; set; }
             public string[] ToListViewItem()
             {
                 return new string[] {
                     Name.ToString(),
                     Author.ToString(),
                     Version.ToString(),
+                    Status.ToString(),
                 };
             }
         }
@@ -360,7 +362,7 @@ namespace Dewricon
             {
                 try
                 {
-                    items.Add(new PluginsList() { Name = item.Value.Name, Author = item.Value.Author, Version = item.Value.Version });
+                    items.Add(new PluginsList() { Name = item.Value.Name, Author = item.Value.Author, Version = item.Value.Version, Status = "No" });
                 }
                 catch (Exception ex)
                 {

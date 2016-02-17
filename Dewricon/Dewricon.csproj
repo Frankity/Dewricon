@@ -66,11 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brain.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\GenLoadPlugin.cs" />
     <Compile Include="Helpers\HttpServer.cs" />
@@ -83,8 +83,8 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,17 +128,14 @@
   </Target>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
-<<<<<<< HEAD
     <PostBuildEvent>
     </PostBuildEvent>
-=======
     <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)" (
         COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
     ) ELSE (
         MKDIR "$(SolutionDir)$(OutDir)"
         COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
     )</PostBuildEvent>
->>>>>>> db69b0f96e724a29e169a8413c006189c42d3d08
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

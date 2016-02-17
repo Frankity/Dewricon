@@ -19,7 +19,7 @@ namespace Dewricon
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            textBox1.Text = Form1.title;
+            textBox1.Text = MainForm.title;
             loadSettings();
         }
 
@@ -46,7 +46,7 @@ namespace Dewricon
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 d1 = new Form1();
+            MainForm d1 = new MainForm();
             var sname = textBox1.Text.ToString();
             d1.saveSettings(textBox1.Text, Voip , Sprint, Mplayers);
         }

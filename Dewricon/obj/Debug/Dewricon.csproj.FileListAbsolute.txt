@@ -1,22 +1,12 @@
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
-<<<<<<< HEAD
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.pdb
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.dll
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Form1.resources
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Properties.Resources.resources
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csproj.GenerateResource.Cache
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.exe
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.pdb
-=======
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Form1.resources
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Properties.Resources.resources
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources
-C:\Users\leefo\Source\Repos\Dewricon\Dewricon\obj\Debug\Dewricon.csproj.GenerateResource.Cache
->>>>>>> db69b0f96e724a29e169a8413c006189c42d3d08
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\websocket-sharp.dll
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Properties.Resources.resources
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.Settings.resources
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csproj.GenerateResource.Cache
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.exe
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.pdb
+C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.MainForm.resources

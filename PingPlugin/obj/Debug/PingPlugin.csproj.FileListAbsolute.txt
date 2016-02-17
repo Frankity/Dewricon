@@ -6,10 +6,3 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\De
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.csproj.GenerateResource.Cache
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.dll
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.pdb
-<<<<<<< HEAD
-C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\PingPlugin\obj\Debug\PingPlugin.csprojResolveAssemblyReference.cache
-=======
-C:\Users\leefo\Source\Repos\Dewricon\PingPlugin\obj\Debug\PingPlugin.csprojResolveAssemblyReference.cache
-C:\Users\leefo\Source\Repos\Dewricon\PingPlugin\obj\Debug\PingPlugin.PluginForm.resources
-C:\Users\leefo\Source\Repos\Dewricon\PingPlugin\obj\Debug\PingPlugin.csproj.GenerateResource.Cache
->>>>>>> db69b0f96e724a29e169a8413c006189c42d3d08
