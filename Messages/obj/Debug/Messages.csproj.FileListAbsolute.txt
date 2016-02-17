@@ -1,7 +1,0 @@
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\bin\Debug\Messages.dll
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\bin\Debug\Messages.pdb
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\bin\Debug\DewPlugins.dll
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\bin\Debug\DewPlugins.pdb
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\obj\Debug\Messages.dll
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\obj\Debug\Messages.pdb
-C:\Users\Duglas\documents\visual studio 2013\Projects\Dewricon\Messages\obj\Debug\Messages.csprojResolveAssemblyReference.cache

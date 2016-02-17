@@ -66,11 +66,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button5 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -534,6 +534,16 @@
             this.columnHeader7.Text = "Name";
             this.columnHeader7.Width = 127;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Author";
+            this.columnHeader8.Width = 88;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Version";
+            this.columnHeader9.Width = 82;
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(331, 17);
@@ -557,16 +567,6 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Author";
-            this.columnHeader8.Width = 88;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Version";
-            this.columnHeader9.Width = 82;
             // 
             // Form1
             // 
