@@ -34,17 +34,10 @@ namespace Messages
             }
         }
 
-        public void ReadConfig()
-        {
-            StreamReader Sr = new StreamReader(@"\plugins\Messages.txt");
-            Sr.ReadToEnd();
-
-            Console.WriteLine(Sr.ToString());
-        }
+      
 
         public void Run()
         {
-            ReadConfig(file);
             Console.WriteLine("Message Test :D");
         }
     }

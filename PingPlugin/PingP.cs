@@ -40,6 +40,8 @@ namespace PingPlugin
             ws.OnMessage += ws_OnMessage;
             ws.Send("list");
             Console.WriteLine("sending list command");
+            PluginForm pg = new PluginForm();
+            pg.Show();
             ws.Close();
         }
 

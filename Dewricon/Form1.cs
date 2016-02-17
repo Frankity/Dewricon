@@ -417,7 +417,6 @@ namespace Dewricon
 
         # endregion
 
-
         private void listView2_ItemActivate(object sender, EventArgs e)
         {
             int intselectedindex = listView2.SelectedIndices[0];

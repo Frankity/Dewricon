@@ -66,11 +66,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button5 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -492,6 +493,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -507,7 +509,7 @@
             this.groupBox2.Controls.Add(this.listView2);
             this.groupBox2.Location = new System.Drawing.Point(8, 1);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(307, 257);
+            this.groupBox2.Size = new System.Drawing.Size(307, 382);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plugins";
@@ -522,7 +524,7 @@
             this.listView2.FullRowSelect = true;
             this.listView2.Location = new System.Drawing.Point(3, 18);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(301, 236);
+            this.listView2.Size = new System.Drawing.Size(301, 361);
             this.listView2.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
@@ -533,6 +535,16 @@
             // 
             this.columnHeader7.Text = "Name";
             this.columnHeader7.Width = 127;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Author";
+            this.columnHeader8.Width = 88;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Version";
+            this.columnHeader9.Width = 82;
             // 
             // button5
             // 
@@ -558,15 +570,12 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // columnHeader8
+            // panel1
             // 
-            this.columnHeader8.Text = "Author";
-            this.columnHeader8.Width = 88;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Version";
-            this.columnHeader9.Width = 82;
+            this.panel1.Location = new System.Drawing.Point(324, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(356, 331);
+            this.panel1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -639,6 +648,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
