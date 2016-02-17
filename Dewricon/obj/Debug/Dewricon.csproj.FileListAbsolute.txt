@@ -14,3 +14,4 @@ C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debu
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.exe
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\bin\Debug\Dewricon.pdb
 C:\Users\Duglas\Documents\Visual Studio 2013\Projects\Dewricon\Dewricon\obj\Debug\Dewricon.csprojResolveAssemblyReference.cache
+C:\Users\leefo\Source\Repos\Dewricon\Dewricon\bin\Debug\Dewricon.exe.config
