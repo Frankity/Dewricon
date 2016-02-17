@@ -16,5 +16,18 @@ namespace PingPlugin
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PingP.SaveConfig();
+                MessageBox.Show("Config saved.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

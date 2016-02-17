@@ -76,6 +76,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // PluginForm
             // 
@@ -100,9 +101,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.TextBox textBox1;
 
     }
 }
