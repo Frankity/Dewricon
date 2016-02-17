@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using Dewricon.Helpers;
+using System.Threading;
 
 namespace Dewricon
 {
@@ -53,15 +54,15 @@ namespace Dewricon
         {
             try
             {
-                //dewRcons.ws.Connect();
                 dewRcons.ws.OnOpen += ws_OnOpen;
                 dewRcons.ws.OnError += ws_OnError;
                 dewRcons.ws.OnMessage += ws_OnMessage;
-                connserver();
+                Thread t = new Thread(new ThreadStart(connserver));
+                t.Start();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
             }
         }
 
@@ -266,23 +267,45 @@ namespace Dewricon
 
         public void connserver()
         {
+
             try
             {
 
                 listView1.Items.Clear();
 
                 System.Net.WebClient WCD = new System.Net.WebClient();
-                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775");
+                string sgetjson = WCD.DownloadString("http://67.220.26.156:11775/");
                 dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
-                this.Text = "Dewricon: " + getjson["name"];
+                if (this.InvokeRequired)
+                {
+                    this.Invoke(new Action(() => this.Text = "Dewricon: " + getjson["name"]));
+                }
                 title = getjson["name"];
-                label4.Text = getjson["hostPlayer"];
-                label6.Text = getjson["VoIP"];
-                label8.Text = getjson["map"];
-                label10.Text = getjson["variant"];
-                label12.Text = getjson["numPlayers"];
-                label14.Text = getjson["maxPlayers"];
+                if (label4.InvokeRequired)
+                {
+                label4.Invoke( new Action(() => label4.Text = getjson["hostPlayer"]));
+                }
+                if (label6.InvokeRequired)
+                {
+                label6.Invoke( new Action(() => label6.Text = getjson["VoIP"]));
+                }
+                if (label8.InvokeRequired)
+                {
+                label8.Invoke( new Action(() => label8.Text = getjson["map"]));
+                }
+                if (label10.InvokeRequired)
+                {
+                label10.Invoke( new Action(() => label10.Text = getjson["variant"]));
+                }
+                if (label12.InvokeRequired)
+                {
+                label12.Invoke( new Action(() => label12.Text = getjson["numPlayers"]));
+                }
+                if (label14.InvokeRequired)
+                {
+                label14.Invoke( new Action(() => label14.Text = getjson["maxPlayers"]));
+                }
 
                 s22.GetData(getjson["VoIP"].ToString(), (int)getjson["sprintEnabled"], (int)getjson["maxPlayers"]);
 
@@ -318,10 +341,11 @@ namespace Dewricon
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
             }
 
-            //    htp.Start();
+            Thread.Sleep(2500);
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -421,7 +445,7 @@ namespace Dewricon
 
         private void listView2_ItemActivate(object sender, EventArgs e)
         {
-            
+
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
@@ -467,7 +491,7 @@ namespace Dewricon
             int intselectedindex = listView2.SelectedIndices[0];
             if (intselectedindex >= 0)
             {
-                String text = listView2.Items[intselectedindex].Text; 
+                String text = listView2.Items[intselectedindex].Text;
                 listView2.Items[intselectedindex].SubItems[3].Text = "No";
             }
             foreach (var item in _plugins)

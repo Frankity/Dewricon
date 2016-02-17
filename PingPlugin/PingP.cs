@@ -12,8 +12,14 @@ using System.Windows.Forms;
 
 namespace PingPlugin
 {
-    public class PingP : DewPlugins.DewPlugins
+    public partial class PingP : DewPlugins.DewPlugins
     {
+       
+        public PingP() {
+            ReadConfig(path);
+        }
+
+
         public string Name
         {
             get
@@ -36,10 +42,15 @@ namespace PingPlugin
             }
         }
 
-        public static string PING { get; set; }
-        public static int DELAY { get; set; }
+        static string path = AppDomain.CurrentDomain.BaseDirectory + @"plugins\PingPlugin.txt";
 
-        public WebSocket ws = new WebSocket("ws://127.0.0.1:11776", "dew-rcon");
+        public static string[] List = File.ReadAllLines(path);
+
+        public static string IP = List[1];
+        public static string PORT = List[2];
+        public static string PROTOCOL = List[3];
+        
+        WebSocketSharp.WebSocket ws = new WebSocketSharp.WebSocket("ws://" + IP + ":" + PORT, PROTOCOL);
 
         public static PluginForm pg = new PluginForm();
 
@@ -49,13 +60,12 @@ namespace PingPlugin
             pg.ShowDialog();
         }
 
-
         List<string> Players = new List<string>();
-
+        
         public void GetPlayers()
         {
             System.Net.WebClient WCD = new System.Net.WebClient();
-            string sgetjson = WCD.DownloadString("http://67.220.26.156:11775/");
+            string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
             dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
             var dew = getjson["players"];
@@ -80,6 +90,7 @@ namespace PingPlugin
         {
             for (int i = 0; i < Players.Count; i++)
 			{
+
                 ws.Send("ping " + Players[i]);
             }
         }
@@ -87,14 +98,13 @@ namespace PingPlugin
         public void Run()
         {
             ws.Connect();
-            ws.OnMessage += ws_OnMessage;
+            //ws.OnMessage += ws_OnMessage;
             ws.Send("list");
             Console.WriteLine("sending list command");
             ws.Close();
             GetPlayers();
         }
 
-        static string path = AppDomain.CurrentDomain.BaseDirectory + @"plugins\PingPlugin.txt";
 
         public void CheckFile()
         {
@@ -103,6 +113,9 @@ namespace PingPlugin
                 File.Create(path).Dispose();
                 TextWriter tw = new StreamWriter(path, true);
                 tw.WriteLine("# Config file for PingPlugin ... do not delete this line.");
+                tw.WriteLine("127.0.0.1");
+                tw.WriteLine("11776");
+                tw.WriteLine("dew-rcon");
                 tw.WriteLine("180");
                 tw.WriteLine("7");
                 tw.Close();
@@ -127,6 +140,9 @@ namespace PingPlugin
                 File.Create(path).Dispose();
                 TextWriter tw = new StreamWriter(path, true);
                 tw.WriteLine("# Config file for PingPlugin ... do not delete this line.");
+                tw.WriteLine(pg.textBox2.Text);
+                tw.WriteLine(pg.textBox3.Text);
+                tw.WriteLine(pg.textBox4.Text);
                 tw.WriteLine(pg.textBox1.Text);
                 tw.WriteLine(pg.numericUpDown1.Value);
                 tw.Close();
@@ -136,13 +152,24 @@ namespace PingPlugin
         public void ReadConfig(string path)
         {
             string[] lines = File.ReadAllLines(path);
-            pg.textBox1.Text = lines[1];
-            pg.numericUpDown1.Value = Int32.Parse(lines[2]);
+            IP = lines[1];
+            PORT = lines[2];
+            PROTOCOL = lines[3];
+            pg.textBox2.Text = lines[1];
+            pg.textBox3.Text = lines[2];
+            pg.textBox4.Text = lines[3];
+            pg.textBox1.Text = lines[4];
+            pg.numericUpDown1.Value = Int32.Parse(lines[5]);
+
         }
 
         void ws_OnMessage(object sender, MessageEventArgs e)
         {
             Console.WriteLine(e.Data.ToString());
+            if (e.Data.Contains(""))
+            {
+
+            }
         }
 
     }
