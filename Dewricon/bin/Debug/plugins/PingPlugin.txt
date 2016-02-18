@@ -1,6 +1,0 @@
-# Config file for PingPlugin ... do not delete this line.
-192.168.1.100
-18896
-dew-kity
-25
-7
