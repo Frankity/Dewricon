@@ -63,9 +63,10 @@ namespace Dewricon
                 Thread t = new Thread(new ThreadStart(connserver));
                 t.Start();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show("Are you sure you are connected? check the settings tab");
+                tabControl1.Invoke(new Action(() => tabControl1.SelectTab(3)));
             }
         }
 
@@ -342,9 +343,10 @@ namespace Dewricon
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show("Are you sure you are connected? check the settings tab");
+                tabControl1.Invoke(new Action(() => tabControl1.SelectTab(3)));
             }
 
             Thread.Sleep(2500);
