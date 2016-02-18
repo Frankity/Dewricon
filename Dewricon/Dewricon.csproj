@@ -136,7 +136,7 @@
     ) ELSE (
         MKDIR "$(SolutionDir)$(OutDir)"
         COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
-        COPY /Y "$(TargetPath)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
+        COPY /Y "$(TargetDir)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
     )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
