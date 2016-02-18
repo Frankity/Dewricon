@@ -41,6 +41,8 @@ namespace Dewricon
             {
                 MessageBox.Show(ex.StackTrace);
             }
+
+            PopulatePluginList();
             //---------------------Plugins--------------------//
         }
 
@@ -424,8 +426,6 @@ namespace Dewricon
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             toolStripStatusLabel1.Text = "Vr: " + fvi.FileVersion;
-            LoadPlugins();
-            PopulatePluginList();
             textBox1.Text = Brain.IP;
             textBox2.Text = Brain.PORT;
             textBox4.Text = Brain.PROTOCOL;
