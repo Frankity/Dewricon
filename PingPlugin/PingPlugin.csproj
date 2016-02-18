@@ -96,10 +96,10 @@
   <PropertyGroup>
     <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\$(OutDir)plugins\$(TargetFileName)"</PostBuildEvent>
     <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)plugins\" (
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
     ) ELSE (
         MKDIR "$(SolutionDir)$(OutDir)plugins\"
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
     )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />

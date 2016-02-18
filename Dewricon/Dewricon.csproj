@@ -131,10 +131,12 @@
     <PostBuildEvent>
     </PostBuildEvent>
     <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)" (
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetDir)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
     ) ELSE (
         MKDIR "$(SolutionDir)$(OutDir)"
-        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetPath)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
     )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
