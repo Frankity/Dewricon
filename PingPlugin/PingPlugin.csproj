@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DewPlugins, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DewPlugins">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DewPlugins\$(OutDir)DewPlugins.dll</HintPath>
     </Reference>
