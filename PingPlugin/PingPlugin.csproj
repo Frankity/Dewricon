@@ -33,9 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DewPlugins, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DewPlugins">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DewPlugins\bin\Debug\DewPlugins.dll</HintPath>
+      <HintPath>..\DewPlugins\$(OutDir)DewPlugins.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
@@ -95,8 +95,12 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\$(OutDir)plugins\$(TargetFileName)"</PostBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)plugins\" (
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    ) ELSE (
+        MKDIR "$(SolutionDir)$(OutDir)plugins\"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

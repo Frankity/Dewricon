@@ -42,12 +42,12 @@
     <ApplicationIcon>1455153304_wrench.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DewPlugins, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DewPlugins">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DewPlugins\bin\Debug\DewPlugins.dll</HintPath>
+      <HintPath>..\DewPlugins\$(OutDir)DewPlugins.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -130,8 +130,14 @@
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)" (
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetDir)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
+    ) ELSE (
+        MKDIR "$(SolutionDir)$(OutDir)"
+        COPY /Y "$(TargetDir)$(TargetFileName)" "$(SolutionDir)$(OutDir)$(TargetFileName)"
+        COPY /Y "$(TargetDir)Dewricon.txt" "$(SolutionDir)$(OutDir)Dewricon.txt"
+    )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
