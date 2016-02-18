@@ -95,8 +95,12 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)$(SolutionName)\$(OutDir)plugins\$(TargetFileName)"</PostBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>IF EXIST "$(SolutionDir)$(OutDir)plugins\" (
+        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    ) ELSE (
+        MKDIR "$(SolutionDir)$(OutDir)plugins\"
+        COPY /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)plugins\$(TargetFileName)"
+    )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.1.26.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.1\build\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
