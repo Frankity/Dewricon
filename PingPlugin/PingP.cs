@@ -19,7 +19,6 @@ namespace PingPlugin
             ReadConfig(path);
         }
 
-
         public string Name
         {
             get
@@ -167,7 +166,6 @@ namespace PingPlugin
             Console.WriteLine(e.Data.ToString());
             if (e.Data.Contains(""))
             {
-
             }
         }
 

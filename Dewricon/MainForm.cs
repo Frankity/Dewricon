@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using Dewricon.Helpers;
 using System.Threading;
+using System.IO;
 
 namespace Dewricon
 {
@@ -41,8 +42,8 @@ namespace Dewricon
                 MessageBox.Show(ex.StackTrace);
             }
             //---------------------Plugins--------------------//
-
         }
+
 
         # region
 
@@ -274,7 +275,7 @@ namespace Dewricon
                 listView1.Items.Clear();
 
                 System.Net.WebClient WCD = new System.Net.WebClient();
-                string sgetjson = WCD.DownloadString("http://127.0.0.1:11775/");
+                string sgetjson = WCD.DownloadString("http://" + Brain.IP + ":11775");
                 dynamic getjson = JsonConvert.DeserializeObject(sgetjson);
 
                 if (this.InvokeRequired)
@@ -284,27 +285,27 @@ namespace Dewricon
                 title = getjson["name"];
                 if (label4.InvokeRequired)
                 {
-                label4.Invoke( new Action(() => label4.Text = getjson["hostPlayer"]));
+                    label4.Invoke(new Action(() => label4.Text = getjson["hostPlayer"]));
                 }
                 if (label6.InvokeRequired)
                 {
-                label6.Invoke( new Action(() => label6.Text = getjson["VoIP"]));
+                    label6.Invoke(new Action(() => label6.Text = getjson["VoIP"]));
                 }
                 if (label8.InvokeRequired)
                 {
-                label8.Invoke( new Action(() => label8.Text = getjson["map"]));
+                    label8.Invoke(new Action(() => label8.Text = getjson["map"]));
                 }
                 if (label10.InvokeRequired)
                 {
-                label10.Invoke( new Action(() => label10.Text = getjson["variant"]));
+                    label10.Invoke(new Action(() => label10.Text = getjson["variant"]));
                 }
                 if (label12.InvokeRequired)
                 {
-                label12.Invoke( new Action(() => label12.Text = getjson["numPlayers"]));
+                    label12.Invoke(new Action(() => label12.Text = getjson["numPlayers"]));
                 }
                 if (label14.InvokeRequired)
                 {
-                label14.Invoke( new Action(() => label14.Text = getjson["maxPlayers"]));
+                    label14.Invoke(new Action(() => label14.Text = getjson["maxPlayers"]));
                 }
 
                 s22.GetData(getjson["VoIP"].ToString(), (int)getjson["sprintEnabled"], (int)getjson["maxPlayers"]);
@@ -401,15 +402,34 @@ namespace Dewricon
             }
         }
 
+        public void SaveConfig(string path)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                File.Create(path).Dispose();
+                TextWriter tw = new StreamWriter(path, true);
+                tw.WriteLine("#Do not delete this line... Set the server ip, port and protocol");
+                tw.WriteLine(textBox1.Text);
+                tw.WriteLine(textBox2.Text);
+                tw.WriteLine(textBox4.Text);
+                tw.Close();
+            }
+
+        }
+
+
         private void Form1_Load_1(object sender, EventArgs e)
         {
             StartConnection();
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-
             toolStripStatusLabel1.Text = "Vr: " + fvi.FileVersion;
             LoadPlugins();
             PopulatePluginList();
+            textBox1.Text = Brain.IP;
+            textBox2.Text = Brain.PORT;
+            textBox4.Text = Brain.PROTOCOL;
         }
 
         private void button2_Click_2(object sender, EventArgs e)
@@ -502,8 +522,22 @@ namespace Dewricon
                 }
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SaveConfig(Brain.path);
+            DialogResult dr = MessageBox.Show("Config saved, to apply the changes you must restar the Tool\nDo you want to restart it?", "Atention", MessageBoxButtons.OKCancel);
+
+            if (dr == DialogResult.OK)
+            {
+                System.Windows.Forms.Application.Restart();
+                this.Close();
+            }
+        }
+
     }
 }
+
 
 
 

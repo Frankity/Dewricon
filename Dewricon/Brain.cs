@@ -7,12 +7,21 @@ using System.Net.Sockets;
 using System.Net;
 using WebSocketSharp;
 using WebSocketSharp.Net;
+using System.IO;
 
 namespace Dewricon
 {
     public class Brain
     {
-        public WebSocket ws = new WebSocket("ws://127.0.0.1:11776", "dew-rcon");
+        public static string path = AppDomain.CurrentDomain.BaseDirectory + @"Dewricon.txt";
+
+        public static string[] List = File.ReadAllLines(path);
+
+        public static string IP = List[1];
+        public static string PORT = List[2];
+        public static string PROTOCOL = List[3];
+
+        public WebSocket ws = new WebSocket("ws://" + IP + ":" + PORT, PROTOCOL);
         public string lastMessage = "";
         public string lastCommand = "";
 

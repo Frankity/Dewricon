@@ -1,0 +1,4 @@
+#Do not delete this line... Set the server ip, port and protocol
+127.0.0.1
+11776
+dew-rcon
