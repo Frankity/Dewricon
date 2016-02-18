@@ -9,9 +9,13 @@
 
 # Build results
 [Dd]ebug/
+[Dd]ebug/Dewricon.txt
 [Dd]ebugPublic/
+[Dd]ebugPublic/Dewricon.txt
 [Rr]elease/
+[Rr]elease/Dewricon.txt
 [Rr]eleases/
+[Rr]eleases/Dewricon.txt
 x64/
 x86/
 build/
