@@ -415,7 +415,6 @@ namespace Dewricon
                 tw.WriteLine(textBox4.Text);
                 tw.Close();
             }
-
         }
 
 
