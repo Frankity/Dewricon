@@ -114,9 +114,6 @@ namespace Dewricon
 
         private void btn_Send_to_console_Click(object sender, EventArgs e)
         {
-            if (dewRcons.ws.IsAlive)
-            {
-
                 try
                 {
                     richTextBox1.Invoke(new Action(() => richTextBox1.AppendText("[SENT]: " + textBox3.Text + "\n\n")));
@@ -136,11 +133,6 @@ namespace Dewricon
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
-            else
-            {
-                MessageBox.Show("You're not conencted");
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -355,11 +347,8 @@ namespace Dewricon
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (!dewRcons.ws.IsAlive)
-            {
                 dewRcons.ws.Close();
                 StartConnection();
-            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -431,14 +420,6 @@ namespace Dewricon
             textBox1.Text = Brain.IP;
             textBox2.Text = Brain.PORT;
             textBox4.Text = Brain.PROTOCOL;
-        }
-
-        private void button2_Click_2(object sender, EventArgs e)
-        {
-            if (dewRcons.ws.IsAlive)
-            {
-                dewRcons.ws.Close();
-            }
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -534,6 +515,11 @@ namespace Dewricon
                 System.Windows.Forms.Application.Restart();
                 this.Close();
             }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            dewRcons.ws.Close();
         }
 
     }
